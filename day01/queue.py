@@ -10,7 +10,7 @@
 
 from collections import deque
 
-queue = deque() # 이 친구는 뭐지
+queue = deque() # deque : 앞의 데이터를 뺸다.
 queue.append('A')
 queue.append('B')
 queue.append('C')
