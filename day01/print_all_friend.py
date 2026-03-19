@@ -31,3 +31,21 @@ print_all_friends(g, 'Summer')
 print()
 print("=== Jerry의 모든 친구 ===")
 print_all_friends(g, 'Jerry')
+
+
+"""
+실습 4 집합없이 설계할 경우
+def print_all_friends_broken(g, start):
+    qu = []
+    # done 없이 실행 — 무한 반복 발생!
+    qu.append(start)
+    count = 0
+    while qu and count < 20:   # 무한 루프 방지를 위해 20번만 실행
+        p = qu.pop(0)
+        print(p)
+        for x in g[p]:
+            qu.append(x)       # 중복 체크 없이 그냥 추가
+        count += 1
+print("=== done 없이 실행 (20번 제한) ===")
+print_all_friends_broken(g, 'Tom')
+"""
