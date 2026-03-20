@@ -33,6 +33,7 @@ def grid_dijkstra(grid, start, goal):
 
     cols = len(grid[0])
 
+    visit_count = 0    # 탐색한 칸 수를 세기
     # 모든 칸의 거리를 무한대로 초기화
 
     distances = [[float('inf')] * cols for _ in range(rows)]
@@ -61,6 +62,7 @@ def grid_dijkstra(grid, start, goal):
 
         visited.add((r, c))
 
+        visit_count += 1
         # 도착점에 도달하면 종료
 
         if (r, c) == goal:
@@ -99,12 +101,14 @@ def grid_dijkstra(grid, start, goal):
 
     path.reverse()
 
-    return distances[goal[0]][goal[1]], path
+    return distances[goal[0]][goal[1]], path, visit_count
 # 실행
 
-total_cost, path = grid_dijkstra(grid, start, goal)
+total_cost, path , count= grid_dijkstra(grid, start, goal)
 
 print(f"최소 비용: {total_cost}")
+
+print(f"탐색한 칸 수: {count}")
 
 print(f"경로: {path}")
 
